@@ -1,16 +1,63 @@
-# React + Vite
+# **Lebanon Aggressions Archive (1949–1985)**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A digital archive that documents and organizes historical aggression events that occurred in Lebanon between **1949 and 1985**.
+This project transforms the contents of the original book:
 
-Currently, two official plugins are available:
+**“لبنان 1949–1985: الاعتداءات على لبنان”**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+into a **searchable, filterable, and user-friendly** web platform.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## **✨ Features**
 
-## Expanding the ESLint configuration
+* 🔎 **Full-text search** across all events
+* 🗂️ **Filter by year, month, exact date, or date range**
+* 📅 Beautiful **date picker** for easier filtering
+* 📋 **Copy-to-clipboard** for quick sharing
+* 📨 **Correction request tool** (RequestFix)
+* 📄 **Export database (JSON)**
+* 📱 **Fully responsive design** with a mobile-first search UI
+* 🚀 Modern React + Tailwind architecture
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## **📚 Purpose**
+
+This project aims to:
+
+* Digitize an important historical reference
+* Make research easier and more accessible
+* Preserve Lebanese historical documentation
+* Enable quick search and navigation through decades of recorded events
+
+---
+
+## **📁 Data Source**
+
+The dataset is based on the published book:
+**“لبنان 1949–1985: الاعتداءات على لبنان”**
+
+Ownership and copyrights belong to the original authors and publishers.
+
+---
+
+## **🔧 Tech Stack**
+
+* **React (Vite)**
+* **Tailwind CSS**
+* **Netlify (Deployment)**
+* Modern hooks, responsive layout, and clean component structure.
+
+---
+
+## **📬 Contact**
+
+For improvements, corrections, or contributions:
+**[hassan.m.shamseddine@gmail.com](mailto:hassan.m.shamseddine@gmail.com)**
+---
+
+## **📝 License**
+
+This is an open-source project under the MIT license.
+The dataset remains the intellectual property of its original creators.
