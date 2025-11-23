@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function SearchBar({ onSearch, years }) {
+export default function SearchBar({ onSearch, years, onClose }) {
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
   const [keyword, setKeyword] = useState("");
@@ -11,6 +11,10 @@ export default function SearchBar({ onSearch, years }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch({ fromDate, toDate, keyword, year, month, exactDate });
+
+    if (window.innerWidth < 768 && onClose) {
+      onClose();
+    }
   };
 
   const months = [
@@ -134,15 +138,20 @@ export default function SearchBar({ onSearch, years }) {
       </div>
 
       {/* Exact Date */}
-      <div>
-        <p className="text-sm font-semibold text-gray-700 mb-1">تاريخ محدد</p>
+      <div className="space-y-1">
+        <p className="text-sm font-semibold text-gray-700">تاريخ محدد</p>
 
         <input
-          type="text"
-          placeholder="مثال: 1950/07/25"
+          type="date"
+          min="1949-01-01"
+          max="1985-12-31"
           className="w-full border rounded-lg p-2.5"
-          value={exactDate}
-          onChange={(e) => setExactDate(e.target.value)}
+          value={exactDate ? exactDate.replaceAll("/", "-") : ""}
+          onChange={(e) =>
+            setExactDate(
+              e.target.value ? e.target.value.replaceAll("-", "/") : ""
+            )
+          }
         />
       </div>
 

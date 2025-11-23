@@ -229,7 +229,11 @@ export default function App() {
               ✖
             </button>
 
-            <SearchBar onSearch={handleSearch} years={years} />
+            <SearchBar
+              onSearch={handleSearch}
+              years={years}
+              onClose={() => setOpen(false)}
+            />
 
             {/* MOBILE FOOTER INSIDE SIDEBAR */}
             <div className="block md:hidden mt-10">
