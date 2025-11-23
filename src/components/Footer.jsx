@@ -64,7 +64,7 @@ export default function Footer() {
         </a>
 
         <a
-          href=""
+          href="https://github.com/HassanMSh/aggressions-lebanon"
           target="_blank"
           className="text-indigo-600 hover:underline flex items-center gap-1"
         >
