@@ -24,21 +24,40 @@ into a **searchable, filterable, and user-friendly** web platform.
 
 ## **📚 Purpose**
 
-This project aims to:
-
 * Digitize an important historical reference
-* Make research easier and more accessible
+* Make research and fact-checking accessible
 * Preserve Lebanese historical documentation
-* Enable quick search and navigation through decades of recorded events
+* Enable fast navigation across decades of recorded events
 
 ---
 
 ## **📁 Data Source**
 
 The dataset is based on the published book:
+
 **“لبنان 1949–1985: الاعتداءات على لبنان”**
 
-Ownership and copyrights belong to the original authors and publishers.
+Copyright and intellectual rights belong to the original authors and publishers.
+
+---
+
+## **📥 Data Extraction & OCR Pipeline**
+
+The initial digitization of the book relied on a companion project:
+
+### **Arabic Chrono Dots OCR**
+
+GitHub: [https://github.com/HassanMSh/arabic-chrono-dots-ocr](https://github.com/HassanMSh/arabic-chrono-dots-ocr)
+
+This system performs OCR on Arabic chronological text using:
+
+* **dots.ocr-4bit (Quantized Version)**
+  [https://huggingface.co/helizac/dots.ocr-4bit](https://huggingface.co/helizac/dots.ocr-4bit)
+
+* **Original dots.ocr Model**
+  [https://huggingface.co/rednote-hilab/dots.ocr](https://huggingface.co/rednote-hilab/dots.ocr)
+
+This OCR pipeline generated the base text used to build the structured dataset powering this archive.
 
 ---
 
@@ -55,9 +74,10 @@ Ownership and copyrights belong to the original authors and publishers.
 
 For improvements, corrections, or contributions:
 **[hassan.m.shamseddine@gmail.com](mailto:hassan.m.shamseddine@gmail.com)**
+
 ---
 
 ## **📝 License**
 
-This is an open-source project under the MIT license.
-The dataset remains the intellectual property of its original creators.
+This project is open-source under the **MIT License**.
+The dataset remains the property of its original creators.
