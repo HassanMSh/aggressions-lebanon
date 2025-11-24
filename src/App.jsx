@@ -193,7 +193,7 @@ export default function App() {
 
           <EventList events={visibleEvents} showToast={showToast} />
           {/* Pagination */}
-          {totalPages > 0 && (
+          {filtered.length > 0 && (
             <div className="mt-6 pb-0 md:pb-32">
               <div className="flex justify-center gap-2 flex-wrap">
                 <button
@@ -203,7 +203,6 @@ export default function App() {
                 >
                   السابق
                 </button>
-
                 {getPageNumbers(page, totalPages).map((p, i) =>
                   p === "..." ? (
                     <span
@@ -226,7 +225,6 @@ export default function App() {
                     </button>
                   )
                 )}
-
                 <button
                   disabled={page === totalPages}
                   onClick={() => setPage(page + 1)}
