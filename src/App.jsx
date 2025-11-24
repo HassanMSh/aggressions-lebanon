@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import SearchBar from "./components/SearchBar";
 import EventList from "./components/EventList";
 import { loadEvents } from "./utils/loadEvents";
+import { getPageNumbers } from "./utils/paginationHelper";
 import PageHeader from "./components/PageHeader";
 import Footer from "./components/Footer";
 import Toast from "./components/Toast";
@@ -18,9 +19,10 @@ export default function App() {
   const [page, setPage] = useState(1);
   const pageSize = 20;
 
-  const loaderRef = useRef(null);
-
-  const visibleEvents = filtered.slice(0, page * pageSize);
+  const totalPages = Math.ceil(filtered.length / pageSize);
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  const visibleEvents = filtered.slice(start, end);
 
   const showToast = (msg) => {
     setToast(msg);
@@ -104,22 +106,6 @@ export default function App() {
     setPage(1);
   };
 
-  // Infinite scroll
-  useEffect(() => {
-    const loader = loaderRef.current;
-    if (!loader) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) setPage((p) => p + 1);
-      },
-      { threshold: 1 }
-    );
-
-    observer.observe(loader);
-    return () => observer.disconnect();
-  }, [filtered]);
-
   // Sort toggle
   const toggleSort = () => {
     const next = sortOrder === "asc" ? "desc" : "asc";
@@ -168,7 +154,7 @@ export default function App() {
         {/* MAIN CONTENT */}
         <div
           className={`
-          flex-1 p-2 md:p-6
+          flex-1 p-2 md:p-6 pb-32
           transition-all duration-300 ease-out
           ${open ? "md:mr-80" : "md:mr-[70px]"}
         `}
@@ -190,8 +176,54 @@ export default function App() {
             </button>
           </div>
 
+          <p className="text-sm text-gray-600 mb-2">
+            عدد الأحداث: {filtered.length}
+          </p>
+
           <EventList events={visibleEvents} showToast={showToast} />
-          <div ref={loaderRef} className="h-12"></div>
+          {/* Pagination */}
+          <div className="mt-6 pb-0 md:pb-32">
+            <div className="flex justify-center gap-2 flex-wrap">
+              <button
+                disabled={page === 1}
+                onClick={() => setPage(page - 1)}
+                className="px-4 py-2 bg-white border rounded disabled:opacity-50 hover:bg-gray-100"
+              >
+                السابق
+              </button>
+
+              {getPageNumbers(page, totalPages).map((p, i) =>
+                p === "..." ? (
+                  <span
+                    key={`dots-${i}`}
+                    className="px-3 py-1 text-gray-500 select-none"
+                  >
+                    ...
+                  </span>
+                ) : (
+                  <button
+                    key={`page-${p}-${i}`}
+                    onClick={() => setPage(Number(p))}
+                    className={`px-3 py-1 border rounded ${
+                      page === p
+                        ? "bg-indigo-600 text-white"
+                        : "bg-white hover:bg-gray-100"
+                    }`}
+                  >
+                    {p}
+                  </button>
+                )
+              )}
+
+              <button
+                disabled={page === totalPages}
+                onClick={() => setPage(page + 1)}
+                className="px-4 py-2 bg-white border rounded disabled:opacity-50 hover:bg-gray-100"
+              >
+                التالي
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* RIGHT BORDER (desktop only) */}
