@@ -34,7 +34,7 @@ export function getPageNumbers(current, total) {
   }
 
   // Show dots before last page
-  if (current < total - (half + 1) - 1) {
+  if (end < total - 1) {
     pages.push("...");
   }
 
