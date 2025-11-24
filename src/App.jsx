@@ -193,48 +193,50 @@ export default function App() {
 
           <EventList events={visibleEvents} showToast={showToast} />
           {/* Pagination */}
-          <div className="mt-6 pb-0 md:pb-32">
-            <div className="flex justify-center gap-2 flex-wrap">
-              <button
-                disabled={page === 1}
-                onClick={() => setPage(page - 1)}
-                className="px-4 py-2 bg-white border rounded disabled:opacity-50 hover:bg-gray-100"
-              >
-                السابق
-              </button>
+          {totalPages > 0 && (
+            <div className="mt-6 pb-0 md:pb-32">
+              <div className="flex justify-center gap-2 flex-wrap">
+                <button
+                  disabled={page === 1}
+                  onClick={() => setPage(page - 1)}
+                  className="px-4 py-2 bg-white border rounded disabled:opacity-50 hover:bg-gray-100"
+                >
+                  السابق
+                </button>
 
-              {getPageNumbers(page, totalPages).map((p, i) =>
-                p === "..." ? (
-                  <span
-                    key={`dots-${i}`}
-                    className="px-3 py-1 text-gray-500 select-none"
-                  >
-                    ...
-                  </span>
-                ) : (
-                  <button
-                    key={`page-${p}-${i}`}
-                    onClick={() => setPage(Number(p))}
-                    className={`px-3 py-1 border rounded ${
-                      page === p
-                        ? "bg-indigo-600 text-white"
-                        : "bg-white hover:bg-gray-100"
-                    }`}
-                  >
-                    {p}
-                  </button>
-                )
-              )}
+                {getPageNumbers(page, totalPages).map((p, i) =>
+                  p === "..." ? (
+                    <span
+                      key={`dots-${i}`}
+                      className="px-3 py-1 text-gray-500 select-none"
+                    >
+                      ...
+                    </span>
+                  ) : (
+                    <button
+                      key={`page-${p}-${i}`}
+                      onClick={() => setPage(Number(p))}
+                      className={`px-3 py-1 border rounded ${
+                        page === p
+                          ? "bg-indigo-600 text-white"
+                          : "bg-white hover:bg-gray-100"
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  )
+                )}
 
-              <button
-                disabled={page === totalPages}
-                onClick={() => setPage(page + 1)}
-                className="px-4 py-2 bg-white border rounded disabled:opacity-50 hover:bg-gray-100"
-              >
-                التالي
-              </button>
+                <button
+                  disabled={page === totalPages}
+                  onClick={() => setPage(page + 1)}
+                  className="px-4 py-2 bg-white border rounded disabled:opacity-50 hover:bg-gray-100"
+                >
+                  التالي
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* RIGHT BORDER (desktop only) */}
