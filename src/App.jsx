@@ -42,6 +42,7 @@ export default function App() {
     URL.revokeObjectURL(url);
     showToast("📥 تم تنزيل قاعدة البيانات");
   };
+  const [loading, setLoading] = useState(true);
 
   // Load DB
   useEffect(() => {
@@ -51,6 +52,7 @@ export default function App() {
       setYears(ys);
       setEvents(valid);
       setFiltered(valid);
+      setLoading(false);
     });
   }, []);
 
@@ -122,6 +124,15 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* LOADING OVERLAY */}
+      {loading && (
+        <div className="fixed inset-0 bg-gray-100 flex flex-col items-center justify-center z-[9999]">
+          <div className="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+          <p className="mt-4 text-gray-700 font-semibold text-lg">
+            جاري التحميل...
+          </p>
+        </div>
+      )}
       {/* HEADER */}
       <div
         className={`
