@@ -1,4 +1,5 @@
 export function getPageNumbers(current, total) {
+  if (total === 0) return [];
   const pages = [];
 
   const windowSize = 5; // how many pages to show in the middle
