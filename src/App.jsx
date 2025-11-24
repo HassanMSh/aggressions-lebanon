@@ -18,6 +18,7 @@ export default function App() {
   const [sortOrder, setSortOrder] = useState("desc");
   const [page, setPage] = useState(1);
   const pageSize = 20;
+  const [loading, setLoading] = useState(true);
 
   const totalPages = Math.ceil(filtered.length / pageSize);
   const start = (page - 1) * pageSize;
@@ -42,7 +43,6 @@ export default function App() {
     URL.revokeObjectURL(url);
     showToast("📥 تم تنزيل قاعدة البيانات");
   };
-  const [loading, setLoading] = useState(true);
 
   // Load DB
   useEffect(() => {
