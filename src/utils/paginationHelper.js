@@ -9,7 +9,7 @@ export function getPageNumbers(current, total) {
   pages.push(1);
 
   // Show dots after first page
-  if (current > half + 2) {
+  if (start > 2) {
     pages.push("...");
   }
 
