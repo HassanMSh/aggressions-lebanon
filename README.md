@@ -3,7 +3,7 @@
 A digital archive that documents and organizes historical aggression events that occurred in Lebanon between **1949 and 1985**.
 This project transforms the contents of the original book:
 
-**“لبنان 1949–1985: الاعتداءات على لبنان”**
+**“لبنان 1949–1985: الاعتداءات الإسرائيلية”**
 
 into a **searchable, filterable, and user-friendly** web platform.
 
@@ -35,7 +35,7 @@ into a **searchable, filterable, and user-friendly** web platform.
 
 The dataset is based on the published book:
 
-**“لبنان 1949–1985: الاعتداءات على لبنان”**
+**“لبنان 1949–1985: الاعتداءات الإسرائيلية”**
 
 Copyright and intellectual rights belong to the original authors and publishers.
 
