@@ -7,6 +7,8 @@ This project transforms the contents of the original book:
 
 into a **searchable, filterable, and user-friendly** web platform.
 
+🌐 **Live site:** [https://lebanon-aggressions-archive.netlify.app/](https://lebanon-aggressions-archive.netlify.app/)
+
 ---
 
 ## **✨ Features**
@@ -67,6 +69,19 @@ This OCR pipeline generated the base text used to build the structured dataset p
 * **Tailwind CSS**
 * **Netlify (Deployment)**
 * Modern hooks, responsive layout, and clean component structure.
+
+---
+
+## **🛠️ Development**
+
+```bash
+npm install
+npm run dev      # start the local dev server
+npm run build    # build for production into dist/
+npm run lint     # run ESLint
+```
+
+Notes for AI coding agents and contributors are in [AGENTS.md](AGENTS.md).
 
 ---
 
