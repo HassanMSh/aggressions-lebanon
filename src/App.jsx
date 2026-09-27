@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "./components/SearchBar";
 import EventList from "./components/EventList";
 import { loadEvents } from "./utils/loadEvents";
