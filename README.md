@@ -79,7 +79,10 @@ npm install
 npm run dev      # start the local dev server
 npm run build    # build for production into dist/
 npm run lint     # run ESLint
+npm run check:data  # validate public/events.json
 ```
+
+Changes go through pull requests. GitHub Actions runs lint, the data check and the build on every pull request and on every push to `main`.
 
 Notes for AI coding agents and contributors are in [AGENTS.md](AGENTS.md).
 

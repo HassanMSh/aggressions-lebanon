@@ -23,10 +23,11 @@ npm install
 npm run dev      # local dev server
 npm run build    # production build into dist/
 npm run lint     # ESLint (flat config in eslint.config.js)
+npm run check:data  # validate public/events.json
 npm run preview  # serve the production build
 ```
 
-There are no automated tests yet. Run `npm run lint` and `npm run build` before finishing a change.
+There are no automated tests yet. Run `npm run lint`, `npm run check:data` and `npm run build` before finishing a change.
 
 ## Layout
 
@@ -41,6 +42,8 @@ There are no automated tests yet. Run `npm run lint` and `npm run build` before 
 - `src/utils/paginationHelper.js`: builds the page number list with `...` gaps.
 - `public/events.json`: the dataset the site loads at runtime.
 - `etl/`: SQLite database and the export script (see `etl/README.md`).
+- `scripts/check-events.mjs`: validates `public/events.json` (run with `npm run check:data`).
+- `.github/workflows/ci.yml`: GitHub Actions CI for pull requests and `main`.
 
 ## Data
 
@@ -58,6 +61,14 @@ There are no automated tests yet. Run `npm run lint` and `npm run build` before 
 - When behavior, setup, or workflow changes, update `README.md` (and this file) in the same change.
 - Do not soft-wrap lines in README files; one sentence or bullet per line.
 - Commit messages use `feat: ...` or `fix: ...`. Do not add `Co-Authored-By` trailers or any AI attribution.
+
+## Git workflow
+
+- Never commit or push directly to `main`. Always work on a branch and open a pull request.
+- Branch names: `feat/<short-name>`, `fix/<short-name>` or `docs/<short-name>`.
+- Keep each pull request focused on one change and link the issue it closes (for example `Closes #12`).
+- The `CI` workflow (`.github/workflows/ci.yml`) runs lint, the data check and the build on every pull request and on every push to `main`. It must pass before merging.
+- Merge only after CI is green; delete the branch after merging.
 
 ## UI work
 
